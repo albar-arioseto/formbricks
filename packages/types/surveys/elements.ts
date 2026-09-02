@@ -383,6 +383,7 @@ export const ZSurveyCesElement = ZSurveyElementBase.extend({
   upperLabel: ZI18nString.optional(),
   isColorCodingEnabled: z.boolean().optional().prefault(false),
 });
+export type TSurveyCesElement = z.infer<typeof ZSurveyCesElement>;
 
 // Free Text Box Element (display-only, no input)
 export const ZSurveyFreeTextBoxElement = ZSurveyElementBase.extend({
