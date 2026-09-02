@@ -1,6 +1,7 @@
 import { useState } from "preact/hooks";
 import { type TResponseData, type TResponseTtc } from "@formbricks/types/responses";
-import type { TSurveyFreeTextBoxElement } from "@formbricks/types/surveys/elements";
+import { type TSurveyFreeTextBoxElement } from "@formbricks/types/surveys/elements";
+import { Subheader } from "@/components/general/subheader";
 import { getLocalizedValue } from "@/lib/i18n";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 
@@ -60,11 +61,7 @@ export function FreeTextBoxElement({
         <h2 className="fb-mb-2 fb-text-center fb-text-xl fb-font-bold fb-leading-tight fb-text-slate-800 dark:fb-text-slate-200">
           {getLocalizedValue(element.headline, languageCode)}
         </h2>
-        {element.subheader && (
-          <p className="fb-mb-4 fb-text-center fb-text-base fb-leading-relaxed fb-text-slate-600 dark:fb-text-slate-300">
-            {getLocalizedValue(element.subheader, languageCode)}
-          </p>
-        )}
+        <Subheader subheader={element.subheader ? getLocalizedValue(element.subheader, languageCode) : ""} />
         <button
           type="submit"
           className="fb-mt-4 fb-rounded-md fb-bg-slate-800 fb-px-6 fb-py-2 fb-text-sm fb-font-medium fb-text-white hover:fb-bg-slate-700 focus:fb-outline-none focus:fb-ring-2 focus:fb-ring-slate-500 focus:fb-ring-offset-2 dark:fb-bg-slate-200 dark:fb-text-slate-800 dark:hover:fb-bg-slate-300">
