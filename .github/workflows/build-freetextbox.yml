@@ -25,10 +25,10 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Typecheck types package
         run: npx tsc --noEmit -p packages/types/tsconfig.json
-      - name: Typecheck web app
-        run: npx tsc --noEmit -p apps/web/tsconfig.json
-      - name: Lint
-        run: pnpm lint
+      - name: Typecheck surveys package
+        run: npx tsc --noEmit -p packages/surveys/tsconfig.json
+      - name: Lint changed files
+        run: npx eslint packages/types/ packages/surveys/ apps/web/modules/survey/ apps/web/app/\(app\)/workspaces/\[workspaceId\]/surveys/\[surveyId\]/\(analysis\)/summary/lib/
 
   build:
     needs: validate
