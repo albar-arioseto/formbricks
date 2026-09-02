@@ -17,6 +17,7 @@ import {
   ZSurveyCalElement,
   ZSurveyCesElement,
   ZSurveyConsentElement,
+  ZSurveyContactInfoElement,
   ZSurveyCsatElement,
   ZSurveyDateElement,
   ZSurveyFileUploadElement,
@@ -4130,6 +4131,7 @@ export type TSurveyElementSummaryCta = z.infer<typeof ZSurveyElementSummaryCta>;
 export const ZSurveyElementSummaryConsent = z.object({
   type: z.literal(TSurveyElementTypeEnum.Consent),
   element: ZSurveyConsentElement,
+  ZSurveyContactInfoElement,
   responseCount: z.number(),
   accepted: z.object({
     count: z.number(),
