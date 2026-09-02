@@ -28,6 +28,7 @@ import { ConsentElementForm } from "@/modules/survey/editor/components/consent-e
 import { ContactInfoElementForm } from "@/modules/survey/editor/components/contact-info-element-form";
 import { CSATElementForm } from "@/modules/survey/editor/components/csat-element-form";
 import { CTAElementForm } from "@/modules/survey/editor/components/cta-element-form";
+import { FreeTextBoxElementForm } from "@/modules/survey/editor/components/free-text-box-element-form";
 import { DateElementForm } from "@/modules/survey/editor/components/date-element-form";
 import { EditorCardMenu } from "@/modules/survey/editor/components/editor-card-menu";
 import { FileUploadElementForm } from "@/modules/survey/editor/components/file-upload-element-form";
@@ -204,6 +205,7 @@ export const BlockCard = ({
     [TSurveyElementTypeEnum.MultipleChoiceMulti]: MultipleChoiceElementForm,
     [TSurveyElementTypeEnum.NPS]: NPSElementForm,
     [TSurveyElementTypeEnum.CTA]: CTAElementForm,
+    [TSurveyElementTypeEnum.FreeTextBox]: FreeTextBoxElementForm,
     [TSurveyElementTypeEnum.Rating]: RatingElementForm,
     [TSurveyElementTypeEnum.CSAT]: CSATElementForm,
     [TSurveyElementTypeEnum.CES]: CESElementForm,

@@ -20,7 +20,7 @@ import {
   ZSurveyContactInfoElement,
   ZSurveyCsatElement,
   ZSurveyDateElement,
-  ZSurveyFileUploadElement,
+  ZSurveyFreeTextBoxElement,
   ZSurveyMatrixElement,
   ZSurveyMultipleChoiceElement,
   ZSurveyNPSElement,

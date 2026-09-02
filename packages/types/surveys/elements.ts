@@ -384,7 +384,14 @@ export const ZSurveyCesElement = ZSurveyElementBase.extend({
   isColorCodingEnabled: z.boolean().optional().prefault(false),
 });
 
-export type TSurveyCesElement = z.infer<typeof ZSurveyCesElement>;
+// Free Text Box Element (display-only, no input)
+export const ZSurveyFreeTextBoxElement = ZSurveyElementBase.extend({
+  type: z.literal(TSurveyElementTypeEnum.FreeTextBox),
+  headline: ZI18nString,
+  description: ZI18nString.optional(),
+});
+
+export type TSurveyFreeTextBoxElement = z.infer<typeof ZSurveyFreeTextBoxElement>;
 
 // Union of all element types
 export const ZSurveyElement = z.union([
@@ -405,6 +412,7 @@ export const ZSurveyElement = z.union([
   ZSurveyContactInfoElement,
   ZSurveyCsatElement,
   ZSurveyCesElement,
+  ZSurveyFreeTextBoxElement,
 ]);
 
 export type TSurveyElement = z.infer<typeof ZSurveyElement>;

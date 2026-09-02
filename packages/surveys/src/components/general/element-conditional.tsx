@@ -9,6 +9,7 @@ import { AddressElement } from "@/components/elements/address-element";
 import { CalElement } from "@/components/elements/cal-element";
 import { ConsentElement } from "@/components/elements/consent-element";
 import { ContactInfoElement } from "@/components/elements/contact-info-element";
+import { FreeTextBoxElement } from "@/components/elements/free-text-box-element";
 import { CTAElement } from "@/components/elements/cta-element";
 import { DateElement } from "@/components/elements/date-element";
 import { FileUploadElement } from "@/components/elements/file-upload-element";
@@ -190,6 +191,20 @@ export function ElementConditional({
             autoFocusEnabled={autoFocusEnabled}
             currentElementId={currentElementId}
             onOpenExternalURL={onOpenExternalURL}
+          />
+        );
+      case TSurveyElementTypeEnum.FreeTextBox:
+        return (
+          <FreeTextBoxElement
+            key={element.id}
+            element={element}
+            value={typeof value === "string" ? value : ""}
+            onChange={onChange}
+            languageCode={languageCode}
+            ttc={ttc}
+            setTtc={wrappedSetTtc}
+            autoFocusEnabled={autoFocusEnabled}
+            currentElementId={currentElementId}
           />
         );
       case TSurveyElementTypeEnum.Rating:

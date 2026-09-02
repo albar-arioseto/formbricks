@@ -20,6 +20,7 @@ import {
   Rows3Icon,
   SmilePlusIcon,
   StarIcon,
+  TypeIcon,
 } from "lucide-react";
 import type { JSX } from "react";
 import { TSurveyElementTypeEnum } from "@formbricks/types/surveys/elements";
@@ -131,6 +132,7 @@ export const getElementTypes = (t: TFunction): TElement[] => [
     label: t("templates.rating"),
     description: t("templates.rating_description"),
     icon: StarIcon,
+  TypeIcon,
     category: TElementCategory.Scoring,
     preset: {
       headline: createI18nString("", []),
@@ -230,6 +232,18 @@ export const getElementTypes = (t: TFunction): TElement[] => [
       ctaButtonLabel: createI18nString(t("templates.book_interview"), []),
       buttonUrl: "",
       buttonExternal: true,
+      required: false,
+    },
+  },
+  {
+    id: TSurveyElementTypeEnum.FreeTextBox,
+    label: t("templates.free_text_box"),
+    description: t("templates.free_text_box_description"),
+    icon: TypeIcon,
+    category: TElementCategory.Content,
+    preset: {
+      headline: createI18nString("", []),
+      description: createI18nString("", []),
       required: false,
     },
   },

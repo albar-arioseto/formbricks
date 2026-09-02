@@ -669,6 +669,10 @@ export const getElementSummary = async (
           },
         });
         break;
+      case TSurveyElementTypeEnum.FreeTextBox: {
+        // FreeTextBox is display-only, no response data to summarize
+        break;
+      }
       }
       case TSurveyElementTypeEnum.Consent: {
         const data = {
