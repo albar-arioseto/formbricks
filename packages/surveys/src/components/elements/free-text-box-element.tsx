@@ -6,7 +6,6 @@ import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 
 interface FreeTextBoxElementProps {
   element: TSurveyFreeTextBoxElement;
-  value: string;
   onChange: (responseData: TResponseData) => void;
   languageCode: string;
   ttc: TResponseTtc;
@@ -69,7 +68,7 @@ export function FreeTextBoxElement({
         <button
           type="submit"
           className="fb-mt-4 fb-rounded-md fb-bg-slate-800 fb-px-6 fb-py-2 fb-text-sm fb-font-medium fb-text-white hover:fb-bg-slate-700 focus:fb-outline-none focus:fb-ring-2 focus:fb-ring-slate-500 focus:fb-ring-offset-2 dark:fb-bg-slate-200 dark:fb-text-slate-800 dark:hover:fb-bg-slate-300">
-          Continue
+          {element.buttonLabel ? getLocalizedValue(element.buttonLabel, languageCode) : "Continue"}
         </button>
       </div>
     </form>

@@ -2,7 +2,7 @@
 
 import { type JSX } from "react";
 import { useTranslation } from "react-i18next";
-import { TSurveyFreeTextBoxElement, type TSurveyElement } from "@formbricks/types/surveys/elements";
+import { type TSurveyElement, TSurveyFreeTextBoxElement } from "@formbricks/types/surveys/elements";
 import { TSurvey } from "@formbricks/types/surveys/types";
 import { TUserLocale } from "@formbricks/types/user";
 import { ElementFormInput } from "@/modules/survey/components/element-form-input";
@@ -32,34 +32,44 @@ export const FreeTextBoxElementForm = ({
   return (
     <form>
       <ElementFormInput
+        id="headline"
+        value={element.headline}
+        label={t("common.headline") + "*"}
         localSurvey={localSurvey}
-        element={element}
         elementIdx={elementIdx}
         updateElement={updateElement}
         isInvalid={isInvalid}
         locale={locale}
         isStorageConfigured={isStorageConfigured}
-        headlineTranslations={{}}
-        subheaderTranslations={{}}
       />
 
       <div className="mt-3">
         <ElementFormInput
+          id="subheader"
+          value={element.subheader}
+          label={t("common.description")}
           localSurvey={localSurvey}
-          element={element}
           elementIdx={elementIdx}
-          updateElement={(idx, attrs) => {
-            // Map description to subheader for storage
-            updateElement(idx, { subheader: attrs.headline });
-          }}
+          updateElement={updateElement}
           isInvalid={isInvalid}
           locale={locale}
           isStorageConfigured={isStorageConfigured}
-          headlineTranslations={{}}
-          subheaderTranslations={{}}
-          field="subheader"
-          label={t("common.description")}
           placeholder={t("templates.free_text_box_description_placeholder")}
+        />
+      </div>
+
+      <div className="mt-3">
+        <ElementFormInput
+          id="buttonLabel"
+          value={element.buttonLabel}
+          label={t("common.button_label")}
+          localSurvey={localSurvey}
+          elementIdx={elementIdx}
+          updateElement={updateElement}
+          isInvalid={isInvalid}
+          locale={locale}
+          isStorageConfigured={isStorageConfigured}
+          placeholder="Continue"
         />
       </div>
     </form>

@@ -389,7 +389,7 @@ export type TSurveyCesElement = z.infer<typeof ZSurveyCesElement>;
 export const ZSurveyFreeTextBoxElement = ZSurveyElementBase.extend({
   type: z.literal(TSurveyElementTypeEnum.FreeTextBox),
   headline: ZI18nString,
-  description: ZI18nString.optional(),
+  buttonLabel: ZI18nString.optional(),
 });
 
 export type TSurveyFreeTextBoxElement = z.infer<typeof ZSurveyFreeTextBoxElement>;
