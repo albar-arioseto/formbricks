@@ -672,6 +672,11 @@ export const getElementSummary = async (
       }
       case TSurveyElementTypeEnum.FreeTextBox: {
         // FreeTextBox is display-only, no response data to summarize
+        summary.push({
+          type: element.type,
+          element,
+          responseCount: 0,
+        });
         break;
       }
       case TSurveyElementTypeEnum.Consent: {

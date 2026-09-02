@@ -21,6 +21,7 @@ import {
   ZSurveyCsatElement,
   ZSurveyDateElement,
   ZSurveyFileUploadElement,
+  ZSurveyFreeTextBoxElement,
   ZSurveyMatrixElement,
   ZSurveyMultipleChoiceElement,
   ZSurveyNPSElement,
@@ -4113,6 +4114,14 @@ export const ZSurveyElementSummaryCes = z.object({
 
 export type TSurveyElementSummaryCes = z.infer<typeof ZSurveyElementSummaryCes>;
 
+export const ZSurveyElementSummaryFreeTextBox = z.object({
+  type: z.literal(TSurveyElementTypeEnum.FreeTextBox),
+  element: ZSurveyFreeTextBoxElement,
+  responseCount: z.number(),
+});
+
+export type TSurveyElementSummaryFreeTextBox = z.infer<typeof ZSurveyElementSummaryFreeTextBox>;
+
 export const ZSurveyElementSummaryCta = z.object({
   type: z.literal(TSurveyElementTypeEnum.CTA),
   element: ZSurveyCTAElement,
@@ -4335,6 +4344,7 @@ export const ZSurveyElementSummary = z.union([
   ZSurveyElementSummaryContactInfo,
   ZSurveyElementSummaryCsat,
   ZSurveyElementSummaryCes,
+  ZSurveyElementSummaryFreeTextBox,
 ]);
 
 export type TSurveyElementSummary = z.infer<typeof ZSurveyElementSummary>;
