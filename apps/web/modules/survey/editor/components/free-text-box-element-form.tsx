@@ -57,21 +57,6 @@ export const FreeTextBoxElementForm = ({
           placeholder={t("templates.free_text_box_description_placeholder")}
         />
       </div>
-
-      <div className="mt-3">
-        <ElementFormInput
-          id="buttonLabel"
-          value={element.buttonLabel}
-          label={t("common.button_label")}
-          localSurvey={localSurvey}
-          elementIdx={elementIdx}
-          updateElement={updateElement}
-          isInvalid={isInvalid}
-          locale={locale}
-          isStorageConfigured={isStorageConfigured}
-          placeholder="Continue"
-        />
-      </div>
     </form>
   );
 };
