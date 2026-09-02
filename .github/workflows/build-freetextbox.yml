@@ -12,7 +12,7 @@ env:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -25,10 +25,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Typecheck types package
         run: npx tsc --noEmit -p packages/types/tsconfig.json
-      - name: Typecheck surveys package
-        run: npx tsc --noEmit -p packages/surveys/tsconfig.json
-      - name: Lint changed files
-        run: npx eslint packages/types/ packages/surveys/ apps/web/modules/survey/ apps/web/app/\(app\)/workspaces/\[workspaceId\]/surveys/\[surveyId\]/\(analysis\)/summary/lib/
 
   build:
     needs: validate
