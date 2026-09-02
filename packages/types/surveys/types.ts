@@ -17,7 +17,7 @@ import {
   ZSurveyCalElement,
   ZSurveyCesElement,
   ZSurveyConsentElement,
-  ZSurveyContactInfoElement,
+  ZSurveyCsatElement,
   ZSurveyDateElement,
   ZSurveyFileUploadElement,
   ZSurveyMatrixElement,
