@@ -49,10 +49,10 @@ jobs:
           build-args: |
             NODE_OPTIONS=--max_old_space_size=4096
           secrets: |
-            database_url=dummy
-            encryption_key=dummy
-            redis_url=dummy
-            hub_api_url=dummy
-            hub_api_key=dummy
-            cubejs_api_url=dummy
-            cubejs_api_secret=dummy
+            database_url=postgresql://postgres:postgres@localhost:5432/formbricks
+            encryption_key=dummy-encryption-key-for-build
+            redis_url=redis://localhost:6379
+            hub_api_url=http://localhost:8080
+            hub_api_key=dummy-hub-api-key
+            cubejs_api_url=http://localhost:4000
+            cubejs_api_secret=dummy-cubejs-api-secret
