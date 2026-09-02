@@ -9,10 +9,10 @@ import { AddressElement } from "@/components/elements/address-element";
 import { CalElement } from "@/components/elements/cal-element";
 import { ConsentElement } from "@/components/elements/consent-element";
 import { ContactInfoElement } from "@/components/elements/contact-info-element";
-import { FreeTextBoxElement } from "@/components/elements/free-text-box-element";
 import { CTAElement } from "@/components/elements/cta-element";
 import { DateElement } from "@/components/elements/date-element";
 import { FileUploadElement } from "@/components/elements/file-upload-element";
+import { FreeTextBoxElement } from "@/components/elements/free-text-box-element";
 import { MatrixElement } from "@/components/elements/matrix-element";
 import { MultipleChoiceMultiElement } from "@/components/elements/multiple-choice-multi-element";
 import { MultipleChoiceSingleElement } from "@/components/elements/multiple-choice-single-element";
@@ -198,7 +198,6 @@ export function ElementConditional({
           <FreeTextBoxElement
             key={element.id}
             element={element}
-            value={typeof value === "string" ? value : ""}
             onChange={onChange}
             languageCode={languageCode}
             ttc={ttc}
