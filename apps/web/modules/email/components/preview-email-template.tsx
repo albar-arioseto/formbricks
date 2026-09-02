@@ -717,6 +717,25 @@ export async function PreviewEmailTemplate({
           </Section>
         </PreviewQuestionCard>
       );
+    default:
+      return (
+        <PreviewQuestionCard headline={headline} styleTokens={styleTokens} subheader={subheader} t={t}>
+          <Section className="mt-4 w-full">
+            <div style={getInputShellStyle(styleTokens)}>
+              <span
+                style={{
+                  ...getInputTextStyle(styleTokens),
+                  fontFamily: styleTokens.fontFamily,
+                  fontSize: "16px",
+                  fontWeight: 500,
+                  lineHeight: "24px",
+                }}>
+                {t("emails.preview_not_available")}
+              </span>
+            </div>
+          </Section>
+        </PreviewQuestionCard>
+      );
   }
 }
 
