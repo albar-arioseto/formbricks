@@ -132,7 +132,7 @@ export const getElementTypes = (t: TFunction): TElement[] => [
     label: t("templates.rating"),
     description: t("templates.rating_description"),
     icon: StarIcon,
-  TypeIcon,
+    TypeIcon,
     category: TElementCategory.Scoring,
     preset: {
       headline: createI18nString("", []),
@@ -243,7 +243,7 @@ export const getElementTypes = (t: TFunction): TElement[] => [
     category: TElementCategory.Content,
     preset: {
       headline: createI18nString("", []),
-      description: createI18nString("", []),
+      subheader: createI18nString("", []),
       required: false,
     },
   },

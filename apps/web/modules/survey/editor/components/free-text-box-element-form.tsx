@@ -46,7 +46,7 @@ export const FreeTextBoxElementForm = ({
       <div className="mt-3">
         <ElementFormInput
           id="subheader"
-          value={element.subheader}
+          value={element.subheader ?? (element as any).description}
           label={t("common.description")}
           localSurvey={localSurvey}
           elementIdx={elementIdx}

@@ -60,7 +60,15 @@ export function FreeTextBoxElement({
           />
         )}
         <Headline headline={getLocalizedValue(element.headline, languageCode)} alignTextCenter />
-        <Subheader subheader={element.subheader ? getLocalizedValue(element.subheader, languageCode) : ""} />
+        <Subheader
+          subheader={
+            element.subheader
+              ? getLocalizedValue(element.subheader, languageCode)
+              : (element as any).description
+                ? getLocalizedValue((element as any).description, languageCode)
+                : ""
+          }
+        />
       </div>
     </form>
   );
