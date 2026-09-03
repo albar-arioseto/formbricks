@@ -61,11 +61,6 @@ export function FreeTextBoxElement({
         )}
         <Headline headline={getLocalizedValue(element.headline, languageCode)} alignTextCenter />
         <Subheader subheader={element.subheader ? getLocalizedValue(element.subheader, languageCode) : ""} />
-        <button
-          type="submit"
-          className="fb-mt-4 fb-rounded-md fb-bg-slate-800 fb-px-6 fb-py-2 fb-text-sm fb-font-medium fb-text-white hover:fb-bg-slate-700 focus:fb-outline-none focus:fb-ring-2 focus:fb-ring-slate-500 focus:fb-ring-offset-2 dark:fb-bg-slate-200 dark:fb-text-slate-800 dark:hover:fb-bg-slate-300">
-          {element.buttonLabel ? getLocalizedValue(element.buttonLabel, languageCode) : "Continue"}
-        </button>
       </div>
     </form>
   );

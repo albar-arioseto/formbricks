@@ -96,11 +96,7 @@ export function LocalizedEditor({
               return;
             }
 
-            if (
-              currentElement &&
-              id in currentElement &&
-              (currentElement as Record<string, unknown>)[id] !== undefined
-            ) {
+            if (currentElement && id in currentElement) {
               const translatedContent = {
                 ...value,
                 [selectedLanguageCode]: sanitizedContent,
