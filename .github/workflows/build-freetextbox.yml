@@ -55,17 +55,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-      id-token: write
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Set up Turborepo Remote Cache
-        uses: vercel/setup-turborepo-remote-cache-action@v1.0.0
-        with:
-          team: ${{ vars.TURBO_TEAM }}
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
