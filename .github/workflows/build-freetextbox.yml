@@ -29,6 +29,7 @@ jobs:
               - 'pnpm-lock.yaml'
               - 'pnpm-workspace.yaml'
               - 'turbo.json'
+              - '.github/workflows/**'
 
   validate:
     needs: changes
