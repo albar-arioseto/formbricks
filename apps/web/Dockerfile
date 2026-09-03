@@ -23,6 +23,8 @@ RUN npm install --ignore-scripts -g corepack@0.35.0
 RUN corepack enable
 RUN corepack prepare pnpm@11.7.0 --activate
 
+# Install turbo for remote cache support
+RUN npm install --ignore-scripts -g turbo@2.4.4
 # Install necessary build tools and compilers
 RUN apk update && apk add --no-cache cmake g++ gcc jq make openssl-dev python3
 
@@ -41,6 +43,12 @@ ARG TARGETARCH
 # Base path for the application (optional)
 ARG BASE_PATH=""
 ENV BASE_PATH=${BASE_PATH}
+
+# Turborepo remote cache credentials (passed from CI)
+ARG TURBO_TOKEN
+ENV TURBO_TOKEN=${TURBO_TOKEN}
+ARG TURBO_TEAM
+ENV TURBO_TEAM=${TURBO_TEAM}
 
 # Set the working directory
 WORKDIR /app
@@ -64,7 +72,7 @@ RUN pnpm install --ignore-scripts --frozen-lockfile
 # the secret and run through the secret reader so a build-time fallback is supplied
 # (mirrors the web build below); prisma generate never connects to the database.
 RUN --mount=type=secret,id=database_url \
-    /tmp/read-secrets.sh pnpm build --filter=@formbricks/database
+    /tmp/read-secrets.sh turbo run build --filter=@formbricks/database
 
 # Build the project using our secret reader script
 # This mounts the secrets only during this build step without storing them in layers
@@ -77,7 +85,7 @@ RUN --mount=type=secret,id=database_url \
     --mount=type=secret,id=cubejs_api_secret \
     --mount=type=secret,id=sentry_auth_token \
     --mount=type=secret,id=posthog_key \
-    /tmp/read-secrets.sh pnpm build --filter=@formbricks/web...
+    /tmp/read-secrets.sh turbo run build --filter=@formbricks/web...
 
 #
 ## step 3: setup production runner

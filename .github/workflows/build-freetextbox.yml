@@ -75,6 +75,11 @@ jobs:
             type=sha,prefix=
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+      - name: Setup Turborepo Remote Cache
+        uses: vercel/setup-turborepo-remote-cache-action@v2
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -87,6 +92,8 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             NODE_OPTIONS=--max_old_space_size=4096
+            TURBO_TOKEN=${{ secrets.TURBO_TOKEN }}
+            TURBO_TEAM=${{ vars.TURBO_TEAM }}
           secrets: |
             database_url=postgresql://postgres:postgres@localhost:5432/formbricks
             encryption_key=dummy-encryption-key-for-build
