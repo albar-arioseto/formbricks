@@ -1,6 +1,7 @@
 import { useState } from "preact/hooks";
 import { type TResponseData, type TResponseTtc } from "@formbricks/types/responses";
 import { type TSurveyFreeTextBoxElement } from "@formbricks/types/surveys/elements";
+import { Headline } from "@/components/general/headline";
 import { Subheader } from "@/components/general/subheader";
 import { getLocalizedValue } from "@/lib/i18n";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
@@ -58,9 +59,7 @@ export function FreeTextBoxElement({
             muted
           />
         )}
-        <h2 className="fb-mb-2 fb-text-center fb-text-xl fb-font-bold fb-leading-tight fb-text-slate-800 dark:fb-text-slate-200">
-          {getLocalizedValue(element.headline, languageCode)}
-        </h2>
+        <Headline headline={getLocalizedValue(element.headline, languageCode)} alignTextCenter />
         <Subheader subheader={element.subheader ? getLocalizedValue(element.subheader, languageCode) : ""} />
         <button
           type="submit"
